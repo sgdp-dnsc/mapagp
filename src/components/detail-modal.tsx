@@ -22,19 +22,19 @@ export function DetailModal({ hito, isOpen, onClose }: DetailModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent className="sm:max-w-[600px] bg-white text-[#333333] border-[#e0e0e0] shadow-xl overflow-hidden rounded-md px-6 py-6 pb-8">
-                <div className={`absolute top-0 left-0 w-2 h-full ${isCritical || isPeremptory ? "bg-[#eb3c46]" : "bg-[#00457c]"
+            <DialogContent className="w-[95vw] sm:max-w-[600px] max-h-[90vh] overflow-y-auto bg-white text-[#333333] border-[#e0e0e0] shadow-xl rounded-md px-4 sm:px-6 py-6 pb-8">
+                <div className={`fixed top-0 left-0 w-2 h-full z-10 ${isCritical || isPeremptory ? "bg-[#eb3c46]" : "bg-[#00457c]"
                     }`} />
 
                 <DialogHeader className="pl-4 pb-4 border-b border-[#e0e0e0]">
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
                         <div>
-                            <p className="text-[14px] font-semibold text-[#666666] mb-1.5 uppercase tracking-wide">{hito.categoria}</p>
-                            <DialogTitle className="text-xl font-bold leading-tight text-[#00457c]">
+                            <p className="text-[12px] sm:text-[14px] font-semibold text-[#666666] mb-1 uppercase tracking-wide">{hito.categoria}</p>
+                            <DialogTitle className="text-lg sm:text-xl font-bold leading-tight text-[#00457c]">
                                 {hito.hito}
                             </DialogTitle>
                         </div>
-                        <div className="flex flex-col gap-2 items-end shrink-0">
+                        <div className="flex flex-row sm:flex-col gap-2 items-center sm:items-end shrink-0">
                             {isCritical && (
                                 <Badge className="bg-rose-50 text-[#eb3c46] hover:bg-rose-50 border border-rose-100 pointer-events-none px-2 py-0.5 whitespace-nowrap rounded-[4px] shadow-none inline-flex items-center gap-1">
                                     <AlertTriangle className="w-3 h-3" />Crítico
@@ -49,7 +49,7 @@ export function DetailModal({ hito, isOpen, onClose }: DetailModalProps) {
                     </div>
                 </DialogHeader>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-6 pl-4 pr-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 py-6 pl-4 pr-2">
                     <div className="space-y-6">
                         <div>
                             <h4 className="flex items-center text-[14px] font-bold text-[#333333] mb-3">
@@ -57,16 +57,16 @@ export function DetailModal({ hito, isOpen, onClose }: DetailModalProps) {
                                 Normativa y Legal
                             </h4>
                             <div className="bg-[#fcfcfc] rounded-[6px] p-4 border border-[#e0e0e0]">
-                                <p className="text-[14px] text-[#666666] font-medium leading-relaxed mb-4">{hito.normativa}</p>
+                                <p className="text-[13px] sm:text-[14px] text-[#666666] font-medium leading-relaxed mb-4">{hito.normativa}</p>
 
                                 <div className="flex items-center justify-between pt-3 border-t border-[#e0e0e0]">
-                                    <span className="text-[13px] text-[#666666]">¿Requiere SIAPER?</span>
+                                    <span className="text-[12px] sm:text-[13px] text-[#666666]">¿Requiere SIAPER?</span>
                                     {hito.siaper.toLowerCase() === "sí" ? (
-                                        <span className="text-[13px] font-medium text-[#137333] bg-[#e6f4ea] px-2 py-0.5 rounded-[4px]">
+                                        <span className="text-[12px] sm:text-[13px] font-medium text-[#137333] bg-[#e6f4ea] px-2 py-0.5 rounded-[4px]">
                                             Sí
                                         </span>
                                     ) : (
-                                        <span className="text-[13px] font-medium text-[#666666] bg-[#f2f5f7] px-2 py-0.5 rounded-[4px]">
+                                        <span className="text-[12px] sm:text-[13px] font-medium text-[#666666] bg-[#f2f5f7] px-2 py-0.5 rounded-[4px]">
                                             No
                                         </span>
                                     )}
@@ -95,12 +95,12 @@ export function DetailModal({ hito, isOpen, onClose }: DetailModalProps) {
                             </h4>
                             <div className="bg-[#fcfcfc] rounded-[6px] p-4 border border-[#e0e0e0] space-y-4">
                                 <div>
-                                    <span className="block text-[12px] uppercase tracking-wide font-semibold text-[#999999] mb-1">Responsable</span>
-                                    <span className="text-[14px] font-medium text-[#333333]">{hito.responsable}</span>
+                                    <span className="block text-[11px] sm:text-[12px] uppercase tracking-wide font-semibold text-[#999999] mb-1">Responsable</span>
+                                    <span className="text-[13px] sm:text-[14px] font-medium text-[#333333]">{hito.responsable}</span>
                                 </div>
                                 <div className="pt-3 border-t border-[#e0e0e0]">
-                                    <span className="block text-[12px] uppercase tracking-wide font-semibold text-[#999999] mb-1">Periodicidad</span>
-                                    <span className="text-[14px] font-medium text-[#333333]">{hito.periodicidad}</span>
+                                    <span className="block text-[11px] sm:text-[12px] uppercase tracking-wide font-semibold text-[#999999] mb-1">Periodicidad</span>
+                                    <span className="text-[13px] sm:text-[14px] font-medium text-[#333333]">{hito.periodicidad}</span>
                                 </div>
                             </div>
                         </div>

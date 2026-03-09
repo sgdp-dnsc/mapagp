@@ -19,6 +19,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedHito, setSelectedHito] = useState<HitoData | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   // Filtrar por categoría seleccionada
   let currentCategoryData = allData.filter((d) => d.categoria === selectedCategory)
@@ -115,23 +116,29 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-slate-50">
+    <div className="flex h-screen overflow-hidden bg-slate-50 relative">
       <Sidebar
         categories={categories}
         selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
+        onSelectCategory={(cat) => {
+          setSelectedCategory(cat)
+          setIsSidebarOpen(false)
+        }}
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
 
-      <div className="flex-1 flex flex-col h-full overflow-hidden">
+      <div className="flex-1 flex flex-col h-full overflow-hidden w-full">
         <Header
           categoryName={selectedCategory}
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           onExportExcel={handleExportExcel}
           onExportPDF={handleExportPDF}
+          onMenuClick={() => setIsSidebarOpen(true)}
         />
 
-        <main className="flex-1 overflow-y-auto p-6 scroll-smooth print:p-0">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-6 scroll-smooth print:p-0">
           <div className="max-w-6xl mx-auto space-y-6">
             <KPICards
               totalHitos={totalHitos}
@@ -139,14 +146,18 @@ export default function Home() {
               expiringHitos={expiringHitos}
             />
 
-            <div>
-              <h3 className="text-lg font-semibold text-slate-800 mb-4 print:hidden">
-                Detalle de Procesos
-              </h3>
-              <DataTable
-                data={currentCategoryData}
-                onRowClick={handleRowClick}
-              />
+            <div className="bg-white rounded-lg shadow-sm border border-[#e0e0e0] overflow-hidden">
+              <div className="p-4 sm:p-6 border-b border-[#e0e0e0] flex items-center justify-between">
+                <h3 className="text-lg font-semibold text-slate-800 print:hidden">
+                  Detalle de Procesos
+                </h3>
+              </div>
+              <div className="p-0">
+                <DataTable
+                  data={currentCategoryData}
+                  onRowClick={handleRowClick}
+                />
+              </div>
             </div>
           </div>
         </main>
