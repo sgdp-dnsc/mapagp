@@ -64,7 +64,8 @@ export default function Home() {
 
     const worksheet = XLSX.utils.json_to_sheet(exportData)
     const workbook = XLSX.utils.book_new()
-    XLSX.utils.book_append_sheet(workbook, worksheet, selectedCategory)
+    const sheetName = selectedCategory.substring(0, 31)
+    XLSX.utils.book_append_sheet(workbook, worksheet, sheetName)
     XLSX.writeFile(workbook, `Mapa_Procesos_${selectedCategory.replace(/\s+/g, '_')}.xlsx`)
   }
 
