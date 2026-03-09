@@ -16,43 +16,50 @@ export function Header({
     onExportExcel,
 }: HeaderProps) {
     return (
-        <header className="bg-white border-b border-slate-200 px-8 py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 print:hidden">
-            <div>
-                <h2 className="text-2xl font-extrabold tracking-tight text-slate-900">{categoryName}</h2>
-                <p className="text-sm font-medium text-slate-500 mt-1">Visualización de procesos y cumplimiento normativo</p>
+        <div className="flex flex-col w-full print:hidden">
+            {/* Franja Superior Institucional */}
+            <div className="h-1 w-full flex">
+                <div className="w-1/3 bg-[#00457c]"></div>
+                <div className="w-2/3 bg-[#eb3c46]"></div>
             </div>
-
-            <div className="flex items-center gap-3">
-                <div className="relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
-                    <input
-                        type="text"
-                        placeholder="Buscar hito, responsable..."
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        className="pl-9 pr-4 py-2 border border-slate-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-64"
-                    />
+            <header className="bg-white border-b border-[#e0e0e0] px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                    <h2 className="text-2xl font-semibold tracking-tight text-[#00457c]">{categoryName}</h2>
+                    <p className="text-[14px] font-regular text-[#666666] mt-1">Visualización de procesos y cumplimiento normativo</p>
                 </div>
 
-                <div className="flex gap-2">
-                    <button
-                        onClick={onExportExcel}
-                        className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                        title="Exportar a Excel"
-                    >
-                        <Download className="w-4 h-4" />
-                        <span className="hidden sm:inline">Excel</span>
-                    </button>
-                    <button
-                        onClick={onExportPDF}
-                        className="flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                        title="Exportar a PDF"
-                    >
-                        <FileText className="w-4 h-4" />
-                        <span className="hidden sm:inline">PDF</span>
-                    </button>
+                <div className="flex items-center gap-3">
+                    <div className="relative">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[#666666] w-4 h-4" />
+                        <input
+                            type="text"
+                            placeholder="Buscar hito, responsable..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="pl-9 pr-4 py-2 border border-[#e0e0e0] rounded-md text-[14px] focus:outline-none focus:ring-1 focus:ring-[#00457c] w-full sm:w-64 text-[#333333] placeholder:text-[#666666]"
+                        />
+                    </div>
+
+                    <div className="flex gap-2">
+                        <button
+                            onClick={onExportExcel}
+                            className="flex items-center gap-2 bg-[#00457c] hover:bg-[#00335e] text-white px-4 py-2 rounded-md text-[14px] font-medium transition-colors shadow-sm"
+                            title="Exportar a Excel"
+                        >
+                            <Download className="w-4 h-4" />
+                            <span className="hidden sm:inline">Excel</span>
+                        </button>
+                        <button
+                            onClick={onExportPDF}
+                            className="flex items-center gap-2 bg-white border border-[#00457c] text-[#00457c] hover:bg-slate-50 px-4 py-2 rounded-md text-[14px] font-medium transition-colors shadow-sm"
+                            title="Exportar a PDF"
+                        >
+                            <FileText className="w-4 h-4" />
+                            <span className="hidden sm:inline">PDF</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </header>
+            </header>
+        </div>
     )
 }
