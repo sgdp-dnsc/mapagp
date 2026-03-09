@@ -104,6 +104,21 @@ export function DataTable({ data, onRowClick }: DataTableProps) {
                             </TableRow>
                         ) : (
                             filteredData.map((row) => {
+                                const isFootnoteRow = row.hito.startsWith("Nota ") || row.hito.startsWith("SISPUBLI:");
+
+                                if (isFootnoteRow) {
+                                    return (
+                                        <TableRow
+                                            key={row.id}
+                                            className="hover:bg-transparent border-t border-slate-100"
+                                        >
+                                            <TableCell colSpan={6} className="text-[11px] sm:text-xs text-slate-500 py-3 italic bg-slate-50/50">
+                                                {row.hito}
+                                            </TableCell>
+                                        </TableRow>
+                                    )
+                                }
+
                                 const isCritical = row.criticidad.toLowerCase() === "alta"
                                 const isPeremptory = row.plazoPerentorio.toLowerCase() === "sí"
 
