@@ -42,13 +42,27 @@ export function DataTable({ data, onRowClick }: DataTableProps) {
     const [responsableFilter, setResponsableFilter] = useState("Todos")
     const [alertaFilter, setAlertaFilter] = useState("Todas")
 
-    // Obtener opciones únicas para los filtros
-    const periodicidades = ["Todas", ...Array.from(new Set(data.map((d) => d.periodicidad)))]
-    const responsables = ["Todos", ...Array.from(new Set(data.map((d) => d.responsable)))]
-    const alertas = ["Todas", "Críticos", "Vencimientos"]
+    // Separar contenido de notas al pie
+    const contentItems = data.filter(d => !d.hito.startsWith("Nota ") && !d.hito.startsWith("SISPUBLI:"))
+    const footnotes = data.filter(d => d.hito.startsWith("Nota ") || d.hito.startsWith("SISPUBLI:"))
 
-    // Aplicar filtros
-    const filteredData = data.filter((item) => {
+    // Verificar si hay filtros internos activos
+    const isInternalFilterActive = periodicidadFilter !== "Todas" || responsableFilter !== "Todos" || alertaFilter !== "Todas"
+
+    // Obtener opciones únicas para los filtros basados en el contenido real
+    const periodicidades = ["Todas", ...Array.from(new Set(contentItems.map((d) => d.periodicidad)))]
+    const responsables = ["Todos", ...Array.from(new Set(contentItems.map((d) => d.responsable)))]
+
+    // Filtro de Alertas adaptativo
+    const hasCritical = contentItems.some(d => d.criticidad.toLowerCase() === "alta")
+    const hasExpiring = contentItems.some(d => d.plazoPerentorio.toLowerCase() === "sí")
+
+    const availableAlerts = ["Todas"]
+    if (hasCritical) availableAlerts.push("Críticos")
+    if (hasExpiring) availableAlerts.push("Vencimientos")
+
+    // Aplicar filtros locales sobre el contenido
+    const filteredContent = contentItems.filter((item) => {
         const matchPeriodicidad = periodicidadFilter === "Todas" || item.periodicidad === periodicidadFilter
         const matchResponsable = responsableFilter === "Todos" || item.responsable === responsableFilter
 
@@ -98,7 +112,7 @@ export function DataTable({ data, onRowClick }: DataTableProps) {
                             <SelectValue placeholder="Alertas" />
                         </SelectTrigger>
                         <SelectContent>
-                            {alertas.map((a) => (
+                            {availableAlerts.map((a) => (
                                 <SelectItem key={a} value={a} className="text-[13px]">{a}</SelectItem>
                             ))}
                         </SelectContent>
@@ -115,34 +129,19 @@ export function DataTable({ data, onRowClick }: DataTableProps) {
                                 <TableHead className="font-bold text-[11px] uppercase tracking-wider text-slate-500 h-11">SIAPER</TableHead>
                                 <TableHead className="min-w-[150px] font-bold text-[11px] uppercase tracking-wider text-slate-500 h-11">Normativa / Naturaleza</TableHead>
                                 <TableHead className="font-bold text-[11px] uppercase tracking-wider text-slate-500 hidden md:table-cell h-11">Periodicidad</TableHead>
-                                <TableHead className="font-bold text-[11px] uppercase tracking-wider text-slate-500 hidden md:table-cell h-11 text-center">Vinculación con otras instituciones</TableHead>
-                                <TableHead className="font-bold text-[11px] uppercase tracking-wider text-slate-500 h-11">Estado Alertas</TableHead>
+                                <TableHead className="font-bold text-[11px] uppercase tracking-wider text-slate-500 hidden md:table-cell h-11 text-center">Vinculación</TableHead>
+                                <TableHead className="font-bold text-[11px] uppercase tracking-wider text-slate-500 h-11">Alertas</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
-                            {filteredData.length === 0 ? (
+                            {filteredContent.length === 0 ? (
                                 <TableRow>
-                                    <TableCell colSpan={6} className="h-32 text-center text-slate-400 text-sm">
-                                        No se encontraron resultados para los filtros seleccionados.
+                                    <TableCell colSpan={6} className="h-32 text-center text-slate-400 text-sm italic">
+                                        No se encontraron procesos para estos criterios.
                                     </TableCell>
                                 </TableRow>
                             ) : (
-                                filteredData.map((row) => {
-                                    const isFootnoteRow = row.hito.startsWith("Nota ") || row.hito.startsWith("SISPUBLI:");
-
-                                    if (isFootnoteRow) {
-                                        return (
-                                            <TableRow
-                                                key={row.id}
-                                                className="hover:bg-transparent border-b border-slate-100"
-                                            >
-                                                <TableCell colSpan={6} className="text-[11px] sm:text-[12px] text-slate-500 py-4 italic bg-slate-50/50 leading-relaxed px-6">
-                                                    {row.hito}
-                                                </TableCell>
-                                            </TableRow>
-                                        )
-                                    }
-
+                                filteredContent.map((row) => {
                                     const isCritical = row.criticidad.toLowerCase() === "alta"
                                     const isPeremptory = row.plazoPerentorio.toLowerCase() === "sí"
                                     const showSiaper = row.siaper.toLowerCase() === "sí"
@@ -154,7 +153,7 @@ export function DataTable({ data, onRowClick }: DataTableProps) {
                                             className={`group cursor-pointer transition-colors border-b border-slate-100 hover:bg-slate-50/80 ${isCritical || isPeremptory ? "border-l-4 border-l-[#eb3c46]" : "border-l-4 border-l-transparent"
                                                 }`}
                                         >
-                                            <TableCell className="font-bold text-[12px] sm:text-[14px] text-slate-800 py-4 leading-snug">
+                                            <TableCell className="font-bold text-[12px] sm:text-[13px] text-slate-800 py-4 leading-snug">
                                                 {row.hito}
                                             </TableCell>
                                             <TableCell>
@@ -164,34 +163,53 @@ export function DataTable({ data, onRowClick }: DataTableProps) {
                                                         Sí
                                                     </Badge>
                                                 ) : (
-                                                    <span className="text-[13px] text-slate-300">-</span>
+                                                    <span className="text-[13px] text-slate-300 font-bold">-</span>
                                                 )}
                                             </TableCell>
-                                            <TableCell className="text-[12px] sm:text-[13px] text-slate-600 font-medium">
+                                            <TableCell className="text-[11px] sm:text-[12px] text-slate-600 font-medium leading-relaxed">
                                                 {row.normativa}
                                             </TableCell>
-                                            <TableCell className="text-[12px] sm:text-[13px] text-slate-600 hidden md:table-cell">{row.periodicidad}</TableCell>
-                                            <TableCell className="text-[12px] sm:text-[13px] text-slate-600 hidden md:table-cell text-center">{row.responsable}</TableCell>
+                                            <TableCell className="text-[11px] sm:text-[12px] text-slate-600 hidden md:table-cell">{row.periodicidad}</TableCell>
+                                            <TableCell className="text-[11px] sm:text-[12px] text-slate-600 hidden md:table-cell text-center whitespace-nowrap">{row.responsable}</TableCell>
                                             <TableCell>
                                                 <div className="flex flex-col gap-1.5 2xl:flex-row">
                                                     {isCritical && (
-                                                        <Badge className="bg-rose-50 text-[#eb3c46] hover:bg-rose-50 border-rose-100 pointer-events-none px-2 py-0.5 whitespace-nowrap rounded-md shadow-none inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider">
+                                                        <Badge className="bg-rose-50 text-[#eb3c46] hover:bg-rose-50 border-rose-100 pointer-events-none px-2 py-0.5 whitespace-nowrap rounded-md shadow-none inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider">
                                                             <AlertTriangle className="w-3 h-3" />Alta
                                                         </Badge>
                                                     )}
                                                     {isPeremptory && (
-                                                        <Badge className="bg-amber-50 text-amber-700 hover:bg-amber-50 border-amber-100 pointer-events-none px-2 py-0.5 whitespace-nowrap rounded-md shadow-none inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider">
+                                                        <Badge className="bg-amber-50 text-amber-700 hover:bg-amber-50 border-amber-100 pointer-events-none px-2 py-0.5 whitespace-nowrap rounded-md shadow-none inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider">
                                                             <CalendarClock className="w-3 h-3" />Perentorio
                                                         </Badge>
                                                     )}
                                                     {!isCritical && !isPeremptory && (
-                                                        <span className="text-[11px] text-slate-400 font-medium italic">Normal</span>
+                                                        <span className="text-[10px] text-slate-300 font-medium uppercase tracking-widest">—</span>
                                                     )}
                                                 </div>
                                             </TableCell>
                                         </TableRow>
                                     )
                                 })
+                            )}
+
+                            {/* Renderizar Notas al pie solo si no hay filtros activos */}
+                            {!isInternalFilterActive && footnotes.length > 0 && (
+                                <>
+                                    <TableRow className="hover:bg-transparent">
+                                        <TableCell colSpan={6} className="py-2"></TableCell>
+                                    </TableRow>
+                                    {footnotes.map((row) => (
+                                        <TableRow
+                                            key={row.id}
+                                            className="hover:bg-transparent border-t border-slate-100"
+                                        >
+                                            <TableCell colSpan={6} className="text-[10px] sm:text-[11px] text-slate-400 py-3 italic bg-slate-50/20 leading-relaxed px-6 font-medium">
+                                                {row.hito}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </>
                             )}
                         </TableBody>
                     </Table>

@@ -15,7 +15,7 @@ export default function Home() {
   const categories = rawData.categories
   const allData = rawData.data as HitoData[]
 
-  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+  const [selectedCategory, setSelectedCategory] = useState("Introducción")
   const [searchQuery, setSearchQuery] = useState("")
   const [alertFilter, setAlertFilter] = useState<"Todas" | "Críticos" | "Vencimientos">("Todas")
   const [selectedHito, setSelectedHito] = useState<HitoData | null>(null)

@@ -12,62 +12,62 @@ interface KPICardsProps {
 
 export function KPICards({ totalHitos, criticalHitos, expiringHitos, onFilterChange, currentFilter }: KPICardsProps) {
     return (
-        <div className="grid gap-4 md:grid-cols-3 mb-6 print:hidden">
+        <div className="grid gap-3 md:grid-cols-3 mb-6 print:hidden">
             <Card
                 onClick={() => onFilterChange("Todas")}
                 className={cn(
-                    "cursor-pointer transition-all border-0 border-l-4 shadow-sm rounded-md bg-white overflow-hidden hover:shadow-md",
+                    "cursor-pointer transition-all border-0 border-l-4 shadow-sm rounded-lg bg-white overflow-hidden hover:shadow-md active:scale-[0.98]",
                     currentFilter === "Todas" ? "border-l-[#00457c] ring-1 ring-inset ring-[#00457c]/10 bg-slate-50" : "border-l-slate-200"
                 )}
             >
-                <CardHeader className="flex flex-row items-center justify-between pb-2 pt-4 px-4">
-                    <CardTitle className="text-[12px] font-bold text-[#666666] uppercase tracking-wider">Total Hitos</CardTitle>
-                    <div className={cn("p-1.5 rounded-md", currentFilter === "Todas" ? "bg-[#00457c]/10 text-[#00457c]" : "bg-slate-100 text-slate-500")}>
+                <div className="flex flex-row items-center justify-between p-3">
+                    <div className="space-y-0.5">
+                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Total Hitos</p>
+                        <div className="text-xl font-bold text-slate-800 tracking-tight">{totalHitos}</div>
+                        <p className="text-[10px] text-slate-400 font-medium">Ver todos los procesos</p>
+                    </div>
+                    <div className={cn("p-2 rounded-lg shrink-0", currentFilter === "Todas" ? "bg-[#00457c]/10 text-[#00457c]" : "bg-slate-50 text-slate-400")}>
                         <ListTodo className="h-4 w-4" />
                     </div>
-                </CardHeader>
-                <CardContent className="px-4 pb-4 pt-0">
-                    <div className="text-[24px] font-bold text-[#333333] tracking-tight">{totalHitos}</div>
-                    <p className="text-[12px] text-[#666666] mt-1">Ver todos los procesos</p>
-                </CardContent>
+                </div>
             </Card>
 
             <Card
                 onClick={() => onFilterChange("Críticos")}
                 className={cn(
-                    "cursor-pointer transition-all border-0 border-l-4 shadow-sm rounded-md bg-white overflow-hidden hover:shadow-md",
+                    "cursor-pointer transition-all border-0 border-l-4 shadow-sm rounded-lg bg-white overflow-hidden hover:shadow-md active:scale-[0.98]",
                     currentFilter === "Críticos" ? "border-l-[#eb3c46] ring-1 ring-inset ring-[#eb3c46]/10 bg-rose-50" : "border-l-slate-200"
                 )}
             >
-                <CardHeader className="flex flex-row items-center justify-between pb-2 pt-4 px-4">
-                    <CardTitle className="text-[12px] font-bold text-[#666666] uppercase tracking-wider">Hitos Críticos</CardTitle>
-                    <div className={cn("p-1.5 rounded-md", currentFilter === "Críticos" ? "bg-rose-100 text-[#eb3c46]" : "bg-slate-100 text-slate-500")}>
+                <div className="flex flex-row items-center justify-between p-3">
+                    <div className="space-y-0.5">
+                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Hitos Críticos</p>
+                        <div className="text-xl font-bold text-slate-800 tracking-tight">{criticalHitos}</div>
+                        <p className="text-[10px] text-[#eb3c46] font-medium">Filtrar Criticidad Alta</p>
+                    </div>
+                    <div className={cn("p-2 rounded-lg shrink-0", currentFilter === "Críticos" ? "bg-rose-100 text-[#eb3c46]" : "bg-slate-50 text-slate-400")}>
                         <AlertCircle className="h-4 w-4" />
                     </div>
-                </CardHeader>
-                <CardContent className="px-4 pb-4 pt-0">
-                    <div className="text-[24px] font-bold text-[#333333] tracking-tight">{criticalHitos}</div>
-                    <p className="text-[12px] text-[#eb3c46] mt-1">Filtrar por Criticidad Alta</p>
-                </CardContent>
+                </div>
             </Card>
 
             <Card
                 onClick={() => onFilterChange("Vencimientos")}
                 className={cn(
-                    "cursor-pointer transition-all border-0 border-l-4 shadow-sm rounded-md bg-white overflow-hidden hover:shadow-md",
+                    "cursor-pointer transition-all border-0 border-l-4 shadow-sm rounded-lg bg-white overflow-hidden hover:shadow-md active:scale-[0.98]",
                     currentFilter === "Vencimientos" ? "border-l-amber-500 ring-1 ring-inset ring-amber-500/10 bg-amber-50" : "border-l-slate-200"
                 )}
             >
-                <CardHeader className="flex flex-row items-center justify-between pb-2 pt-4 px-4">
-                    <CardTitle className="text-[12px] font-bold text-[#666666] uppercase tracking-wider">Vencimientos</CardTitle>
-                    <div className={cn("p-1.5 rounded-md", currentFilter === "Vencimientos" ? "bg-amber-100 text-amber-600" : "bg-slate-100 text-slate-500")}>
+                <div className="flex flex-row items-center justify-between p-3">
+                    <div className="space-y-0.5">
+                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Vencimientos</p>
+                        <div className="text-xl font-bold text-slate-800 tracking-tight">{expiringHitos}</div>
+                        <p className="text-[10px] text-amber-600 font-medium">Filtrar Plazo Perentorio</p>
+                    </div>
+                    <div className={cn("p-2 rounded-lg shrink-0", currentFilter === "Vencimientos" ? "bg-amber-100 text-amber-600" : "bg-slate-50 text-slate-400")}>
                         <CalendarClock className="h-4 w-4" />
                     </div>
-                </CardHeader>
-                <CardContent className="px-4 pb-4 pt-0">
-                    <div className="text-[24px] font-bold text-[#333333] tracking-tight">{expiringHitos}</div>
-                    <p className="text-[12px] text-amber-600 mt-1">Filtrar Plazo Perentorio</p>
-                </CardContent>
+                </div>
             </Card>
         </div>
     )
