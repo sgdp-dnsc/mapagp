@@ -68,6 +68,20 @@ export function Sidebar({ categories, selectedCategory, onSelectCategory, isOpen
                 <span className="leading-snug">Introducción</span>
               </button>
             </li>
+            <li>
+              <button
+                onClick={() => onSelectCategory("GLOSARIO")}
+                className={cn(
+                  "w-full flex items-center space-x-3 px-4 py-3 rounded-md transition-all text-[14px] font-medium text-left",
+                  selectedCategory === "GLOSARIO"
+                    ? "bg-[#f2f5f7] text-[#00457c] shadow-sm border border-[#00457c]/20"
+                    : "text-[#666666] hover:bg-slate-50 hover:text-[#333333] border border-transparent"
+                )}
+              >
+                <Folder className={cn("w-4 h-4", selectedCategory === "GLOSARIO" ? "text-[#00457c]" : "text-[#666666]")} />
+                <span className="leading-snug">Glosario</span>
+              </button>
+            </li>
           </ul>
 
           <h2 className="px-6 text-xs font-bold text-[#666666] uppercase tracking-widest mb-4">Categorías</h2>
