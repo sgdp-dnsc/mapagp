@@ -94,7 +94,7 @@ export default function Home() {
     const doc = new jsPDF()
 
     doc.setFontSize(16)
-    doc.text(`Mapa de Procesos HR - Reporte`, 14, 15)
+    doc.text(`Mapa de Procesos Gestión de Personas - Reporte`, 14, 15)
     doc.setFontSize(10)
     doc.text(`Fecha: ${new Date().toLocaleDateString()}`, 14, 22)
 
@@ -150,31 +150,31 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-sm border border-[#e0e0e0] p-8 sm:p-12">
                 <div className="max-w-3xl mx-auto space-y-8">
                   <div className="prose prose-slate max-w-none">
-                    <p className="text-xl text-slate-800 leading-relaxed font-bold mb-6">
-                      Bienvenidos,
+                    <p className="text-xl text-slate-800 leading-relaxed font-bold mb-6 text-justify">
+                      Bienvenido/a,
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                    <p className="text-lg text-slate-700 leading-relaxed mb-4 text-justify">
                       Con el fin de aportar a una visión y comprensión amplia del rol de Gestión de Personas al interior de cada Servicio, hemos levantado el siguiente “Mapa de Gestión y Desarrollo de Personas”.
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                    <p className="text-lg text-slate-700 leading-relaxed mb-4 text-justify">
                       Buscamos que ésta sea una herramienta útil para las jefaturas del área de gestión y desarrollo de personas, y que les permita, realizar una check list del cumplimiento de los compromisos establecidos para el área; generar un diagnóstico que les permita identificar funciones críticas, demandas y desafíos del área; y también a jefaturas de ADP, tener una panorámica vinculada al área, entre otras posibilidades.
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-4">
+                    <p className="text-lg text-slate-700 leading-relaxed mb-4 text-justify">
                       En este mapeo de gestión encontrarán cada subsistema de gestión y desarrollo de personas, dividido en 2 niveles:
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-2">
-                      -Nivel 1: Aborda temáticas básicas, que deben estar presentes para las áreas de gestión de personas y que tienen un correlato de cumplimiento legal o normativo.
+                    <p className="text-lg text-slate-700 leading-relaxed mb-2 text-justify">
+                      -<span className="font-bold text-[#00457c]">Nivel 1</span>: Aborda temáticas básicas, que deben estar presentes para las áreas de gestión de personas y que tienen un correlato de cumplimiento legal o normativo.
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-6">
-                      -Nivel 2: Aborda hitos o acciones de carácter más estratégico, que apuntan a un nivel de desarrollo mayor en materia de gestión y desarrollo de personas en cada servicio.
+                    <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
+                      -<span className="font-bold text-[#00457c]">Nivel 2</span>: Aborda hitos o acciones de carácter más estratégico, que apuntan a un nivel de desarrollo mayor en materia de gestión y desarrollo de personas en cada servicio.
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed">
+                    <p className="text-lg text-slate-700 leading-relaxed text-justify">
                       El objetivo final es entregar una herramienta de mapeo y alertas tempranas que permita a las jefaturas navegar la complejidad normativa sin perder de vista el desarrollo humano.
                     </p>
 
