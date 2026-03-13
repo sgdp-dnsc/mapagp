@@ -35,7 +35,7 @@ export function Header({
                     </button>
                     <div>
                         <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#00457c]">{categoryName}</h2>
-                        <p className="text-[12px] sm:text-[14px] font-regular text-[#666666] mt-0.5 sm:mt-1">Mapa de Procesos HR</p>
+                        <p className="text-[12px] sm:text-[14px] font-regular text-[#666666] mt-0.5 sm:mt-1">Mapa de Procesos Gestión de Personas</p>
                     </div>
                 </div>
 

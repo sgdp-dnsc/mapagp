@@ -5,7 +5,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mapa de Procesos HR",
+  title: "Mapa de Procesos Gestión de Personas",
   description: "Visualizador de Mapa de Procesos y Cumplimiento Normativo - Gestión de Personas",
 }
 
