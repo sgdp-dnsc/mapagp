@@ -149,37 +149,56 @@ export default function Home() {
             {selectedCategory === "Introducción" && !isSearching ? (
               <div className="bg-white rounded-lg shadow-sm border border-[#e0e0e0] p-8 sm:p-12">
                 <div className="max-w-3xl mx-auto space-y-8">
-                  <div className="prose prose-slate max-w-none">
-                    <p className="text-xl text-slate-800 leading-relaxed font-bold mb-6 text-justify">
-                      Bienvenido/a,
+<div className="prose prose-slate max-w-none">
+                    <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
+                      El rol de la Jefatura de Gestión y Desarrollo de Personas en el sector público se ha tornado cada día más versátil y estratégico. Más allá de las funciones vinculadas a la gestión administrativa y procedimental asociadas al ciclo de vida de las personas, su rol desde una perspectiva sistémica, es clave para generar valor público en las instituciones y aportar al desarrollo de las personas. Esto debe estar en sintonía con los objetivos y desafíos estratégicos de cada institución y en consideración al impacto en la calidad de los servicios que se entregan a la ciudadanía, a partir del marco normativo vigente para el sector público.
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-4 text-justify">
-                      Con el fin de aportar a una visión y comprensión amplia del rol de Gestión de Personas al interior de cada Servicio, hemos levantado el siguiente “Mapa de Gestión y Desarrollo de Personas”.
+                    <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
+                      Para contribuir en este sentido, se ha elaborado este material con el objetivo de aportar de una manera simple y ejecutiva a una comprensión más integral de este rol, visibilizando los ámbitos de acción del quehacer más permanente del área, las obligaciones normativas y la gestión administrativa que le corresponden, y también, procesos más estratégicos.
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-4 text-justify">
-                      Buscamos que ésta sea una herramienta útil para las jefaturas del área de gestión y desarrollo de personas, y que les permita, realizar una check list del cumplimiento de los compromisos establecidos para el área; generar un diagnóstico que les permita identificar funciones críticas, demandas y desafíos del área; y también a jefaturas de ADP, tener una panorámica vinculada al área, entre otras posibilidades.
+                    <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
+                      Para ello, se realizó un levantamiento y registro de funciones y responsabilidades por ámbito de acción, con especial énfasis, en la criticidad de cada acción y a partir de las implicancias que puede tener su ejecución, así como, las posibles medidas sancionatorias derivadas de algún incumplimiento y la gestión rigurosa que se espera de los recursos presupuestarios que cada servicio debe administrar de manera eficiente, eficaz y con apego a la probidad.
+                    </p>
+
+                    <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
+                      De esta forma, se identifican los aspectos centrales que deben tener en cuenta y guiar la gestión y el desarrollo de personas al interior de la institución, en el corto plazo y mediano plazo, ofreciendo un marco que permita a las jefaturas enfocarse tanto en prioridades de gestión que tengan algún impacto/ consecuencia y en prioridades estratégicas que posibilitan el desarrollo de las personas en cada institución.
                     </p>
 
                     <p className="text-lg text-slate-700 leading-relaxed mb-4 text-justify">
                       En este mapeo de gestión encontrarán cada subsistema de gestión y desarrollo de personas, dividido en 2 niveles:
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed mb-2 text-justify">
-                      -<span className="font-bold text-[#00457c]">Nivel 1</span>: Aborda temáticas básicas, que deben estar presentes para las áreas de gestión de personas y que tienen un correlato de cumplimiento legal o normativo.
+                    <ul className="list-none space-y-2 mb-6">
+                      <li className="text-lg text-slate-700 text-justify">
+                        <span className="font-bold text-[#00457c]">-Nivel 1</span>: Aborda temáticas básicas, que deben estar presentes para las áreas de gestión de personas y que tienen un correlato legal o normativo.
+                      </li>
+                      <li className="text-lg text-slate-700 text-justify">
+                        <span className="font-bold text-[#00457c]">-Nivel 2</span>: Aborda hitos o acciones de carácter más estratégico, que apuntan a un nivel de desarrollo mayor en materia de gestión y desarrollo de personas en cada servicio.
+                      </li>
+                    </ul>
+
+                    <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
+                      La ejecución de las acciones propuestas estará sujeta a diversos factores, tales como, la <span className="font-bold">complejidad</span> específica de cada servicio, su nivel de <span className="font-bold">congruencia</span> organizacional y la <span className="font-bold">madurez técnica</span> en gestión y desarrollo de personas.
                     </p>
 
                     <p className="text-lg text-slate-700 leading-relaxed mb-6 text-justify">
-                      -<span className="font-bold text-[#00457c]">Nivel 2</span>: Aborda hitos o acciones de carácter más estratégico, que apuntan a un nivel de desarrollo mayor en materia de gestión and desarrollo de personas en cada servicio.
+                      En definitiva, esta matriz puede ser una herramienta de apoyo que contribuya a mapear funciones del rol del área, identificación oportuna de principales hitos y/o alertas que pueden incidir en la gestión, y a potenciar acciones de desarrollo de las personas al interior de la institución para contribuir al cumplimiento de los objetivos institucionales.
                     </p>
 
-                    <p className="text-lg text-slate-700 leading-relaxed text-justify">
-                      El objetivo final es entregar una herramienta de mapeo y alertas tempranas que permita a las jefaturas navegar la complejidad normativa sin perder de vista el desarrollo humano.
+                    <p className="text-lg text-slate-700 leading-relaxed mb-4 text-justify font-bold">
+                      Este documento propone un Mapa Integral del Rol, diseñado para visibilizar y ordenar los ámbitos de acción de la jefatura bajo tres pilares:
                     </p>
+
+                    <ul className="list-disc pl-6 space-y-2 mb-8 text-lg text-slate-700 text-justify">
+                      <li><span className="font-bold">Criticidad y Probidad</span>: Identificación de funciones donde el incumplimiento conlleva riesgos sancionatorios o patrimoniales.</li>
+                      <li><span className="font-bold">Priorización Temporal</span>: Distinción entre la gestión urgente (corto plazo) y el desarrollo estratégico de personas (mediano plazo).</li>
+                      <li><span className="font-bold">Adaptabilidad</span>: Reconociendo que la ejecución depende de la madurez técnica y la congruencia organizacional de cada servicio (no es "talla única").</li>
+                    </ul>
 
                     <div className="mt-12 p-6 bg-[#f2f5f7] rounded-xl border border-[#00457c]/10 text-center italic text-[#00457c]">
-                      "Navegando la complejidad normativa sin perder de vista el desarrollo humano."
+                      El objetivo final es entregar una herramienta de <span className="font-bold">mapeo y alertas tempranas</span> que permita a las jefaturas navegar la complejidad normativa sin perder de vista el desarrollo humano.
                     </div>
                   </div>
                 </div>
@@ -195,7 +214,7 @@ export default function Home() {
                   <div className="grid gap-6">
                     <div className="space-y-4">
                       <p className="text-slate-700 font-medium">Conceptos clave de Gestión de Personas:</p>
-                      
+
                       <div className="divide-y divide-slate-100">
                         <div className="py-4">
                           <p className="font-bold text-[#00457c] mb-1">Anotaciones de Mérito y Demérito</p>

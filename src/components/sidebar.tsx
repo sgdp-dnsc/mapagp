@@ -58,10 +58,10 @@ export function Sidebar({ categories, selectedCategory, onSelectCategory, isOpen
               <button
                 onClick={() => onSelectCategory("Introducción")}
                 className={cn(
-                  "w-full flex items-center space-x-3 px-4 py-3 rounded-md transition-all text-[14px] font-medium text-left",
-                  selectedCategory === "Introducción"
-                    ? "bg-[#f2f5f7] text-[#00457c] shadow-sm border border-[#00457c]/20"
-                    : "text-[#666666] hover:bg-slate-50 hover:text-[#333333] border border-transparent"
+                   "w-full flex items-center space-x-3 px-4 py-3 rounded-md transition-all text-[14px] font-medium text-left",
+                   selectedCategory === "Introducción"
+                     ? "bg-[#f2f5f7] text-[#00457c] shadow-sm border border-[#00457c]/20"
+                     : "text-[#666666] hover:bg-slate-50 hover:text-[#333333] border border-transparent"
                 )}
               >
                 <LayoutDashboard className={cn("w-4 h-4", selectedCategory === "Introducción" ? "text-[#00457c]" : "text-[#666666]")} />
@@ -114,7 +114,7 @@ export function Sidebar({ categories, selectedCategory, onSelectCategory, isOpen
               Dirección Nacional del<br />Servicio Civil
             </p>
             <p className="text-[11px] text-[#666666] font-medium">
-              V1.0 - Acceso Abierto
+              V1.1 - Acceso Abierto
             </p>
           </div>
         </div>
