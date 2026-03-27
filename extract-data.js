@@ -8,11 +8,11 @@ const jsonOutputPath = path.join(__dirname, 'src', 'data.json');
 // Mapeo exacto de los nombres de las hojas a los títulos requeridos por el usuario
 const sheetMapping = {
     "1. Planificación y Soporte Nive": "1. Planificación y Soporte nivel 1",
-    "Hoja 1": "2. Planificación y Soporte nivel 2",
-    "2. Gestión del Desempeño  Nivel": "3. Gestión del Desempeño nivel 1",
+    "Hoja 3": "2. Planificación y Soporte nivel 2",
+    "Hoja 4": "3. Gestión del Desempeño nivel 1",
     "2. Gestión del Desempeño Nivel ": "4. Gestión del Desempeño nivel 2",
     "3. Gestión del Desarrollo Nivel": "5. Gestión del Desarrollo nivel 1",
-    "Hoja 2": "6. Gestión del Desarrollo nivel 2",
+    "Hoja 5": "6. Gestión del Desarrollo nivel 2",
     "4. Gestión del Cambio Nivel 1": "7. Gestión del Cambio nivel 1",
     "4. Gestión del Cambio Nivel 2": "8. Gestión del Cambio nivel 2"
 };
