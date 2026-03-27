@@ -179,7 +179,7 @@ export default function Home() {
                     </p>
 
                     <div className="mt-12 p-6 bg-[#f2f5f7] rounded-xl border border-[#00457c]/10 text-center italic text-[#00457c]">
-                      Esperamos que este mapa sea de utilidad.
+                      Esperamos que este mapa sea una herramienta de utilidad.
                     </div>
                   </div>
                 </div>
