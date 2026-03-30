@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="200" fill="#00457c"/>
+  <rect x="100" width="100" height="200" fill="#eb3c46"/>
+  
+  <!-- Coat of Arms Placeholder (Simplified Crown/Shield) -->
+  <path d="M50 40 L65 55 L50 70 L35 55 Z" fill="white"/>
+  <rect x="42" y="55" width="16" height="20" fill="white"/>
+  <circle cx="50" cy="85" r="8" fill="white"/>
+  
+  <!-- Text -->
+  <style>
+    .small { font: bold 14px sans-serif; fill: white; }
+    .title { font: bold 18px sans-serif; fill: white; }
+  </style>
+  <text x="110" y="50" class="title">Dirección</text>
+  <text x="110" y="70" class="title">Nacional del</text>
+  <text x="110" y="90" class="title">Servicio Civil</text>
+  
+  <text x="110" y="115" class="small">Ministerio de</text>
+  <text x="110" y="130" class="small">Hacienda</text>
+  
+  <text x="100" y="185" class="title" text-anchor="middle">gob.cl</text>
+</svg>
