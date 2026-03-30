@@ -1,0 +1,12 @@
+node_modules
+.next
+.env
+*.log
+introduction_extracted.md
+glosario_extracted.md
+extract_words.js
+extracted_content.json
+intro_extracted.md
+glosario_extracted.md
+glosario_utf8.md
+/tmp/
