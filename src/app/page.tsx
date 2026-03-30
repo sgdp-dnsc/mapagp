@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect, useMemo, Suspense } from "react" // Agregado Suspense
 import { useRouter, useSearchParams } from "next/navigation"
 import { Sidebar } from "@/components/sidebar"
 import { Header } from "@/components/header"
@@ -14,7 +14,8 @@ import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
 import Fuse from "fuse.js"
 
-export default function Home() {
+// 1. Movemos toda la lógica a un componente interno
+function HomeContent() {
   const router = useRouter()
   const searchParams = useSearchParams()
   
@@ -266,5 +267,14 @@ export default function Home() {
         hito={selectedHito}
       />
     </div>
+  )
+}
+
+// 2. Exportamos el componente envuelto en Suspense
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="flex h-screen items-center justify-center">Cargando aplicación...</div>}>
+      <HomeContent />
+    </Suspense>
   )
 }
