@@ -213,18 +213,134 @@ export default function Home() {
                     <div className="space-y-4">
                       <p className="text-slate-700 font-medium">Conceptos clave de Gestión de Personas:</p>
 
-                      <div className="divide-y divide-slate-100">
+                      <div className="divide-y divide-slate-100 max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Anotaciones de Mérito y Demérito</p>
+                          <p className="text-slate-600 text-sm">Sistema destinado a dejar constancia formal del desempeño funcionario. Las anotaciones de mérito registran una conducta destacada, mientras que las de demérito registran cualquier acción u omisión que implique un desempeño reprochable.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">BGI (Balance de Gestión Integral)</p>
+                          <p className="text-slate-600 text-sm">Informe anual de rendición de cuentas y de control de gestión que debe ser entregado a la Dirección de Presupuestos (Dipres).</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">CAIGG (Consejo de Auditoría Interna General de Gobierno)</p>
+                          <p className="text-slate-600 text-sm">Entidad a la cual se le debe entregar un informe trimestral de acuerdo con las indicaciones del auditor interno de la institución.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">CEAL-SM</p>
+                          <p className="text-slate-600 text-sm">Herramienta o instrumento utilizado para la medición y gestión de los riesgos psicosociales en el trabajo.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Comité Bipartito de Capacitación</p>
+                          <p className="text-slate-600 text-sm">Instancia paritaria de participación donde la institución y los funcionarios, a través de sus representantes, validan el PAC, garantizando transparencia.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Comité Paritario de Higiene y Seguridad</p>
+                          <p className="text-slate-600 text-sm">Instancia al interior de la institución en la cual, dado su carácter técnico y de composición mixta, se levantan necesidades acerca de las condiciones de higiene y seguridad, proponen medidas y se implementan dichas medidas.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Control Presupuestario Subtítulo 21</p>
+                          <p className="text-slate-600 text-sm">Gestión técnica para que el gasto en personal se ajuste estrictamente al marco de la Ley de Presupuesto.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Cursos CAMPUS</p>
+                          <p className="text-slate-600 text-sm">Oferta formativa transversal del Servicio Civil para el fortalecimiento de competencias de las y los funcionarios públicos.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Declaraciones de Intereses y Patrimonio</p>
+                          <p className="text-slate-600 text-sm">Instrumento regulado por la Ley N°20.880 para transparentar las relaciones económicas y patrimoniales que pueden afectar la imparcialidad del funcionario.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">DIPRES (Dirección de Presupuestos)</p>
+                          <p className="text-slate-600 text-sm">Organismo técnico encargado de velar por la asignación y uso eficiente de los recursos públicos mediante programación y control de gestión.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">DNC (Detección de Necesidades de Capacitación)</p>
+                          <p className="text-slate-600 text-sm">Proceso de identificación de necesidades de formación realizado a través de levantamiento de brechas, encuestas o entrevistas.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Dotación</p>
+                          <p className="text-slate-600 text-sm">Número máximo de cargos (planta y contrata) que una institución del Estado tiene autorizados por Ley para funcionar.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Escalafón de Mérito</p>
+                          <p className="text-slate-600 text-sm">Registro actualizado del desempeño del personal de planta que debe ser enviado a la CGR para su toma de conocimiento.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Estatuto Administrativo</p>
+                          <p className="text-slate-600 text-sm">Ordenamiento jurídico principal que regula las relaciones laborales en la administración pública.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Gestión del Ausentismo</p>
+                          <p className="text-slate-600 text-sm">Análisis de licencias médicas y diagnóstico para asegurar la continuidad operativa del Servicio.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Gobierno Transparente</p>
+                          <p className="text-slate-600 text-sm">Publicación mensual de dotación y remuneraciones para dar cumplimiento al acceso a la información pública.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Junta Calificadora</p>
+                          <p className="text-slate-600 text-sm">Órgano encargado de llevar a cabo el proceso de calificación y evaluación del desempeño de los funcionarios.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Malla Formativa en Liderazgo</p>
+                          <p className="text-slate-600 text-sm">Programa estratégico orientado a potenciar habilidades directivas y de gestión de equipos.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">OAL (Organismo Administrador Laboral)</p>
+                          <p className="text-slate-600 text-sm">Entidad encargada de gestionar la prevención de riesgos y atender accidentes de trabajo y enfermedades profesionales.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">PAC (Plan Anual de Capacitación)</p>
+                          <p className="text-slate-600 text-sm">Instrumento que consolida las actividades de capacitación a ejecutar en el año siguiente.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">PMG-MEI</p>
+                          <p className="text-slate-600 text-sm">Sistema de incentivos e indicadores transversales que evalúa capacitación, riesgos psicosociales, y salud y seguridad.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Póliza de Fidelidad Funcionaria</p>
+                          <p className="text-slate-600 text-sm">Caución obligatoria para funcionarios que custodian o administran fondos o bienes públicos.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Portal Empleos Públicos</p>
+                          <p className="text-slate-600 text-sm">Plataforma obligatoria para la difusión de concursos de reclutamiento.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Presupuesto</p>
+                          <p className="text-slate-600 text-sm">Documento que contiene la previsión anual de ingresos y gastos, expresión numérica de los planes.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Prevención de Acoso</p>
+                          <p className="text-slate-600 text-sm">Protocolos para prevenir acoso laboral, sexual y violencia, alineados con Normas de Aplicación General.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Programa de Inducción</p>
+                          <p className="text-slate-600 text-sm">Proceso de socialización que incluye obligatoriamente el curso de Inducción del CEA-CGR.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">SIAGF</p>
+                          <p className="text-slate-600 text-sm">Sistema utilizado para el ingreso y fiscalización de Regímenes de Prestaciones Familiares y Subsidio Familiar.</p>
+                        </div>
                         <div className="py-4">
                           <p className="font-bold text-[#00457c] mb-1">SIAPER</p>
-                          <p className="text-slate-600">Plataforma de la Contraloría General de la República utilizada para registrar resoluciones, ingresos de personal y calificaciones.</p>
+                          <p className="text-slate-600 text-sm">Plataforma de la Contraloría utilizada para registrar resoluciones, ingresos de personal y calificaciones.</p>
                         </div>
                         <div className="py-4">
-                          <p className="font-bold text-[#00457c] mb-1">DIPRES</p>
-                          <p className="text-slate-600">Dirección de Presupuestos del Ministerio de Hacienda, encargada de la asignación y control de recursos financieros.</p>
+                          <p className="font-bold text-[#00457c] mb-1">SISPUBLI</p>
+                          <p className="text-slate-600 text-sm">Sistema Informático de Capacitación del Sector Público para registrar actividades del PAC y facilitar la gestión.</p>
                         </div>
                         <div className="py-4">
-                          <p className="font-bold text-[#00457c] mb-1">ADP</p>
-                          <p className="text-slate-600">Alta Dirección Pública. Sistema que busca dotar a las instituciones públicas de directivos con capacidad de gestión y liderazgo.</p>
+                          <p className="font-bold text-[#00457c] mb-1">Subtítulo 21</p>
+                          <p className="text-slate-600 text-sm">Cuenta presupuestaria asociada a los gastos en personal y requerimientos dotacionales.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">SUSESO</p>
+                          <p className="text-slate-600 text-sm">Entidad fiscalizadora que regula el Servicio de Bienestar, riesgos psicosociales y ausentismo laboral.</p>
+                        </div>
+                        <div className="py-4">
+                          <p className="font-bold text-[#00457c] mb-1">Transferencia de Capacitación</p>
+                          <p className="text-slate-600 text-sm">Medición obligatoria del impacto de la formación en el puesto de trabajo vinculada al PMG.</p>
                         </div>
                       </div>
                     </div>
