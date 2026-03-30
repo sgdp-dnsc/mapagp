@@ -3,15 +3,16 @@ import { cn } from "@/lib/utils"
 
 function getIconForCategory(name: string) {
   const n = name.toLowerCase()
-  if (n.includes('planificación') || n.includes('reclutamiento')) return Users
-  if (n.includes('capacitación') || n.includes('desarrollo')) return GraduationCap
-  if (n.includes('desempeño')) return LayoutDashboard
-  if (n.includes('cambio')) return Building
-  if (n.includes('bienestar')) return Heart
-  if (n.includes('riesgos')) return ShieldAlert
-  if (n.includes('remuneraciones')) return BadgeDollarSign
-  if (n.includes('relaciones')) return Handshake
-  return Folder
+  if (n.includes('planificación')) return { icon: Users, color: "#00457c" }
+  if (n.includes('soporte')) return { icon: Users, color: "#00457c" }
+  if (n.includes('desempeño')) return { icon: LayoutDashboard, color: "#1e40af" }
+  if (n.includes('desarrollo')) return { icon: GraduationCap, color: "#15803d" }
+  if (n.includes('cambio')) return { icon: Building, color: "#c2410c" }
+  if (n.includes('bienestar')) return { icon: Heart, color: "#e11d48" }
+  if (n.includes('riesgos')) return { icon: ShieldAlert, color: "#9f1239" }
+  if (n.includes('remuneraciones')) return { icon: BadgeDollarSign, color: "#115e59" }
+  if (n.includes('relaciones')) return { icon: Handshake, color: "#3730a3" }
+  return { icon: Folder, color: "#666666" }
 }
 
 interface SidebarProps {
@@ -87,7 +88,7 @@ export function Sidebar({ categories, selectedCategory, onSelectCategory, isOpen
           <h2 className="px-6 text-xs font-bold text-[#666666] uppercase tracking-widest mb-4">Categorías</h2>
           <ul className="space-y-1.5 px-4">
             {categories.map((catName) => {
-              const Icon = getIconForCategory(catName)
+              const { icon: Icon, color } = getIconForCategory(catName)
               const isSelected = selectedCategory === catName
               return (
                 <li key={catName}>
@@ -100,7 +101,12 @@ export function Sidebar({ categories, selectedCategory, onSelectCategory, isOpen
                         : "text-[#666666] hover:bg-slate-50 hover:text-[#333333] border border-transparent"
                     )}
                   >
-                    <Icon className={cn("w-4 h-4", isSelected ? "text-[#00457c]" : "text-[#666666]")} />
+                    <div className={cn(
+                      "p-1 rounded-md transition-colors",
+                      isSelected ? "bg-white shadow-sm" : "bg-transparent border border-transparent"
+                    )}>
+                      <Icon className="w-4 h-4" style={{ color: isSelected ? "#00457c" : color }} />
+                    </div>
                     <span className="leading-snug">{catName}</span>
                   </button>
                 </li>
@@ -108,14 +114,21 @@ export function Sidebar({ categories, selectedCategory, onSelectCategory, isOpen
             })}
           </ul>
         </nav>
-        <div className="mt-auto border-t border-[#e0e0e0]">
-          <div className="p-5 flex flex-col items-center text-center gap-1.5">
-            <p className="font-bold text-[13px] text-[#333333] leading-snug tracking-wide">
-              Dirección Nacional del<br />Servicio Civil
-            </p>
-            <p className="text-[11px] text-[#666666] font-medium">
-              V1.1 - Acceso Abierto
-            </p>
+        <div className="mt-auto border-t border-[#e0e0e0] bg-slate-50/50">
+          <div className="p-5 flex flex-col items-center text-center gap-3">
+            <div className="w-48 h-20 relative bg-[#00457c] p-4 rounded-xl shadow-md flex items-center justify-center overflow-hidden border border-white/10 group transition-all hover:scale-[1.02]">
+              <img 
+                src="https://www.serviciocivil.cl/wp-content/uploads/2024/06/logo_sc_white.svg" 
+                alt="DN Servicio Civil" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <p className="text-[11px] text-[#666666] font-semibold tracking-wider">
+                V1.2 - Acceso Abierto
+              </p>
+              <p className="text-[9px] text-[#999999] uppercase tracking-tighter mt-0.5">Ministerio de Hacienda</p>
+            </div>
           </div>
         </div>
       </div>
